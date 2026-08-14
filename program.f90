@@ -1,6 +1,6 @@
 program navier_stokes_python_triangulos
   
-  ! SOLUCIONADOR DE NAVIER-STOKES EN MALLA NO ESTRUCTURADA DE TRIÁNGULOS
+  ! SOLUCIONADOR DE NAVIER-STOKES EN MALLA NO ESTRUCTURADA DE TRIÁNGULOS esta raro xd
   ! Implementa el método de proyección de Chorin (PDF, Sección 2) sobre una
   ! malla de triángulos rectángulos, usando elementos finitos lineales (P1).
   !definicion del cubo 201
@@ -58,21 +58,20 @@ program navier_stokes_python_triangulos
   real :: suma, b_i, suma_off
   
   !!!!! CUBO Y FUEGO !!!!!
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  ! MODIFICACIÓN 1: CUBO EN EL SUELO
+
   ! Original: cubo_centro_y = Ly/1.0  (centro en y=4.9, flotando)
   ! Nuevo: cubo_centro_y = 1.0 (centro en y=1, base toca el suelo en y=0)
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  
   real, parameter :: cubo_centro_x = Lx/2.0
-  !real, parameter :: cubo_centro_y = Ly/1.0  ! ORIGINAL (comentado)
+  !real, parameter :: cubo_centro_y = Ly/1.0  ! ORIGINAL (comenta)
   real, parameter :: cubo_centro_y = 1.0      ! NUEVO: cubo en el suelo
   real, parameter :: cubo_mitad_ancho = 2.0, cubo_mitad_alto = 1.0 !anchura del cubo
   
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 
   ! MODIFICACIÓN 3: VELOCIDAD DE INYECCIÓN DE COMBUSTIBLE AJUSTABLE
   ! Parámetro nuevo para controlar la velocidad de salida del combustible
   ! Valores sugeridos: 0.1 (lento), 0.5 (moderado), 1.0 (rápido), 2.0 (muy rápido)
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  
   real, parameter :: V_combustible = 0.5  ! velocidad de inyección (m/s)
   
   logical :: es_obstaculo(n_nodos)
@@ -96,7 +95,7 @@ program navier_stokes_python_triangulos
   real :: omega
 
   real, parameter :: beta = 1.0 / T_ambiente !Coeficiente de expansion termica
-  real, parameter :: g_acel = -9.81 ! Aceleracion de la gravedad
+  real, parameter :: g_acel = -9.81 ! Aceleracion de la gravedad (-?)
   real :: fuente_flotacion
 
   real :: grad_T_x(n_nodos), grad_T_y(n_nodos)
@@ -283,22 +282,21 @@ program navier_stokes_python_triangulos
         lap_YO(i) = -lap_YO(i) / M_lump(i)
     end do
 
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
     ! MODIFICACIÓN 2: INYECCIÓN DE COMBUSTIBLE POR LA PARTE SUPERIOR
     ! Original: inyección por debajo del cubo (y <= cubo_centro_y - cubo_mitad_alto + 0.2)
     ! Nuevo: inyección por encima del cubo (abs(y - (cubo_centro_y + cubo_mitad_alto)) < 0.3)
     ! También se asigna velocidad vertical v = V_combustible
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    do i = 1, n_nodos
-        !---- INICIO BLOQUE ORIGINAL COMENTADO ----
+   
+        ! INICIO BLOQUE ORIGINAL COMEN-
         !if ( .not. es_obstaculo(i) .and. y(i) <= cubo_centro_y - cubo_mitad_alto + 0.2 .and. &
         !     x(i) >= cubo_centro_x - 0.5 .and. x(i) <= cubo_centro_x + 0.5 ) then
         !    YF(i) = 0.01   ! antes 0.05
         !    YO(i) = 0.0
         !end if
-        !---- FIN BLOQUE ORIGINAL COMENTADO ----
+        !- FIN BLOQUE ORIGINAL COMENTADO 
         
-        !---- INICIO NUEVO BLOQUE (MODIFICACIÓN 2 y 3) ----
+        !- INICIO NUEVO BLOQUE (MODIFICACIÓN 2 y 3) 
         if ( .not. es_obstaculo(i) .and. &
              abs(y(i) - (cubo_centro_y + cubo_mitad_alto)) < 0.3 .and. &
              x(i) >= cubo_centro_x - 0.5 .and. x(i) <= cubo_centro_x + 0.5 ) then
@@ -362,7 +360,7 @@ program navier_stokes_python_triangulos
         if (es_obstaculo(i)) T(i) = T_cubo
     end do
 
-    !CORRECCIÓN ESTABILIDAD: condiciones de contorno para escalares !!!!!
+    !CORRECCIÓN ESTABILIDAD: condiciones de contorno para escalares !
     call condiciones_contorno_escalares(T, YF, YO, x, y, n_nodos, Lx, Ly, T_ambiente)
     !FIN CORRECCI !!!!!
 
@@ -589,7 +587,7 @@ contains
           ! Para forzarlo explícitamente, se podría igualar al primer nodo interior, pero no l.
           continue
       end if
-      ! Salida: gradiente nulo (ya se maneja en el cálculo de laplaciano, pero forzamos por seguridad)
+      ! Salida: gradiente nulo (ya se maneja en el cálculo de laplaciano, pero forzamos por seguri
       if (abs(x(i) - Lx) < 1.0e-6) then
           ! no se modifica, se mantiene el valor calculado
           continue
