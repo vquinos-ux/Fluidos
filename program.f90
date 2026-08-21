@@ -3,7 +3,7 @@ program navier_stokes_python_triangulos
   ! SOLUCIONADOR DE NAVIER-STOKES EN MALLA NO ESTRUCTURADA DE TRIÁNGULOS
   ! Implementa el método de proyección de Chorin (PDF, Sección 2) sobre una
   ! malla de triángulos rectángulos, usando elementos finitos lineales (P1).
-  ! Versión mejorada con termodinámica real, densidad variable, especies y sublimación real.
+  ! Versión mejorada con termodinámica real, densidad variable, especies y sublimación real, con viscosidad contante.
  
   implicit none
 
@@ -39,7 +39,7 @@ program navier_stokes_python_triangulos
   real, parameter :: dx = Lx / (Nx-1), dy = Ly / (Ny-1)
   real, parameter :: dt = 0.0003
   real, parameter :: rho = 1.0            ! densidad de referencia (usada en Poisson)
-  real, parameter :: nu = 0.01            !Viscosidad cinemática (m²/s)
+  real, parameter :: nu = 0.01            !Viscosidad cinemática (m²/s) deberia variar con la T
   real, parameter :: U_inf = 2.0          ! se rompe en 5 o mayor a 2 velocidad alta del oxidante
   integer, parameter :: MAX_ITER_P = 200
 
@@ -100,12 +100,12 @@ program navier_stokes_python_triangulos
   real :: H(n_nodos), H_new(n_nodos)        ! entalpía total de la mezcla (J/kg)
   real, parameter :: D_thermal = 0.05 !difusividad térmica efectiva
   real, parameter :: D_species = 0.05 !difusividad másica efectiva:
-  real, parameter :: tau_comb = 0.005 !empo característico de reacción:
-  real :: omega !asa de reacción másica
+  real, parameter :: tau_comb = 0.005 !tiempo característico de reacción:
+  real :: omega                       !tasa de reacción másica
 
   real, parameter :: beta = 1.0 / T_ambiente !coeficiente de expansión térmica (1/K) para Boussinesq
   real, parameter :: g_acel = -9.81
-  real :: fuente_flotacion !érmino fuente de flotación en la ecuación de momento vertical:
+  real :: fuente_flotacion                   !érmino fuente de flotación en la ecuación de momento vertical:
 
   real :: grad_T_x(n_nodos), grad_T_y(n_nodos)
   real :: grad_YF_x(n_nodos), grad_YF_y(n_nodos)
@@ -120,7 +120,7 @@ program navier_stokes_python_triangulos
   real :: adv_H(n_nodos), lap_H(n_nodos)
   integer :: idx_vecino, k_count
 
-  real, parameter :: DT_MAX = 50.0
+  real, parameter :: DT_MAX = 50.0 !Temperatura maxima en los pasos de tiempo.
 
   ! ============ VARIABLES PARA TERMODINÁMICA ============
   integer, parameter :: n_tabla = 9601
@@ -130,12 +130,12 @@ program navier_stokes_python_triangulos
   real :: cp_CO2_tabla(n_tabla), h_CO2_tabla(n_tabla), s_CO2_tabla(n_tabla)
   real :: cp_H2O_tabla(n_tabla), h_H2O_tabla(n_tabla), s_H2O_tabla(n_tabla)
 
-  ! Entalpías de formación (J/kg) para calor de reacción
+  ! Entalpías de formación (J/kg) para calor de reacción================peso molecular de cada compuesto
   real, parameter :: hf_CH4 = -74600.0 / 16.04246 * 1000.0
   real, parameter :: hf_O2  = 0.0
   real, parameter :: hf_CO2 = -393510.0 / 44.00950 * 1000.0
   real, parameter :: hf_H2O = -241826.0 / 18.01528 * 1000.0
-
+  !pesos moleculares
   real, parameter :: W_CH4 = 16.04246
   real, parameter :: W_O2  = 31.99880
   real, parameter :: W_CO2 = 44.00950
@@ -143,7 +143,7 @@ program navier_stokes_python_triangulos
   real, parameter :: Ru = 8.31446261815324
   real, parameter :: p_atm = 101325.0   ! presión de referencia para densidad
 
-  ! Estequiometría másica corregida
+  ! Estequiometría másica corregida no se xd
   real, parameter :: s     = 2.0 * W_O2  / W_CH4   ! ≈ 3.989
   real, parameter :: r_CO2 = W_CO2 / W_CH4         ! ≈ 2.743
   real, parameter :: r_H2O = 2.0 * W_H2O / W_CH4   ! ≈ 2.246
@@ -260,7 +260,7 @@ program navier_stokes_python_triangulos
     S_diag(i) = -suma_off
   end do
 
-  ! Definición inicial del cubo (metano sólido)
+  ! Definición inicial del cubo (metano sólido)===========condiciones 
   es_obstaculo = .false.
   do i = 1, n_nodos
       if (x(i) >= cubo_centro_x - cubo_mitad_ancho .and. x(i) <= cubo_centro_x + cubo_mitad_ancho .and. &
@@ -274,7 +274,7 @@ program navier_stokes_python_triangulos
   u_star(:) = U_inf; v_star(:) = 0.0; p_new(:) = 0.0
   frame = 0
 
-  T(:) = T_ambiente
+  T(:) = T_ambiente !Parece que T(:) deberia ser diferente 
   YF(:) = 0.0
   YO(:) = 1.0
   YCO2(:) = 0.0
@@ -299,7 +299,7 @@ program navier_stokes_python_triangulos
   call leer_tabla('H2O.txt', T_tabla, cp_H2O_tabla, h_H2O_tabla, s_H2O_tabla, n_tabla)
   print *, "Tablas termodinámicas cargadas."
 
-  ! Calcular entalpía inicial (ahora usando h de las tablas)
+  ! Calcular entalpía inicial (ahora usando h de las tablas,cuidado aca)
   call calcular_entalpia_mezcla(T, YF, YO, YCO2, YH2O, n_nodos, H, &
                                 h_CH4_tabla, h_O2_tabla, h_CO2_tabla, h_H2O_tabla, &
                                 T_tabla, n_tabla)
@@ -317,7 +317,7 @@ program navier_stokes_python_triangulos
   close(13)
 
   ! 5. BUCLE PRINCIPAL
-  do iter = 1, 300000
+  do iter = 1, 600000 !llega hasta 90000 despues de 3 horas. 
 
     ! ============ SUBLIMACIÓN REAL ============
     flujo_calor_total = 0.0
@@ -462,7 +462,7 @@ program navier_stokes_python_triangulos
 
         H_new(i) = H(i) + dt * ( -adv_H(i) + D_thermal * lap_H(i) + calor_reaccion )
     end do
- !aqui cambio 
+ !aqui cambio cuidado aca
     if (mod(iter, 500) == 0) then
     print *, "max YF =", maxval(YF), " max YO =", maxval(YO)
 end if
@@ -583,7 +583,7 @@ end if
         end if
     end do
 
-    ! Detección de NaN
+    ! Detección de NaN Dice donde ocurrio el fallo 
     do i = 1, n_nodos
         if (u(i) /= u(i) .or. abs(u(i)) > 1.0e15) then
             print *, "Problema en u: nodo", i, "x,y=", x(i), y(i), "valor=", u(i), "paso", iter
@@ -898,7 +898,7 @@ contains
           YO(i) = 1.0
           YCO2(i) = 0.0
           YH2O(i) = 0.0
-
+!==========================================================================
           ! Usar directamente la entalpía de la tabla para O2 puro
           call interpolar_tabla(T_amb, T_tabla, h_O2_tabla, n_tabla, h_O2_in)
           H(i) = YO(i) * h_O2_in
