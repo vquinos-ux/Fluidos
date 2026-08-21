@@ -1,0 +1,300 @@
+ Malla generada:       20000 nodos,       39402 triángulos
+ Nodos dentro del cubo:        5207
+ Tablas termodinámicas cargadas.
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso          500  T_cubo =   150.000000      masa_cubo =   1884.86633      altura_cubo =  0.999929070      r_reg =   7.70286482E-04  v_iny =   7.70286471E-02
+   [diag] max|u|=   6.21456909      max|v|=   7.08841515      max T=   5000.00000      min T=   150.000000      max|H|=   7207128.00      flujo_calor_total=   435597.000    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         1000  T_cubo =   150.000000      masa_cubo =   1884.60608      altura_cubo =  0.999791026      r_reg =   1.02690165E-03  v_iny =  0.102690160    
+   [diag] max|u|=   6.52874660      max|v|=   7.69743443      max T=   5000.00000      min T=   150.000000      max|H|=   11209828.0      flujo_calor_total=   580712.875    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         1500  T_cubo =   150.000000      masa_cubo =   1884.29456      altura_cubo =  0.999625742      r_reg =   1.15570205E-03  v_iny =  0.115570195    
+   [diag] max|u|=   6.79243755      max|v|=   8.18011856      max T=   5000.00000      min T=   150.000000      max|H|=   13105748.0      flujo_calor_total=   653549.500    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         2000  T_cubo =   150.000000      masa_cubo =   1883.95752      altura_cubo =  0.999446929      r_reg =   1.24152715E-03  v_iny =  0.124152713    
+   [diag] max|u|=   7.28390503      max|v|=   8.58309555      max T=   5000.00000      min T=   150.000000      max|H|=   14503762.0      flujo_calor_total=   702083.562    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         2500  T_cubo =   150.000000      masa_cubo =   1883.60535      altura_cubo =  0.999260128      r_reg =   1.30782800E-03  v_iny =  0.130782798    
+   [diag] max|u|=   7.65944958      max|v|=   8.88929844      max T=   5000.00000      min T=   150.000000      max|H|=   16825412.0      flujo_calor_total=   739576.750    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         3000  T_cubo =   150.000000      masa_cubo =   1883.21216      altura_cubo =  0.999051511      r_reg =   1.36213482E-03  v_iny =  0.136213481    
+   [diag] max|u|=   7.95788336      max|v|=   9.05326939      max T=   5000.00000      min T=   150.000000      max|H|=   19442756.0      flujo_calor_total=   770287.250    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         3500  T_cubo =   150.000000      masa_cubo =   1882.81885      altura_cubo =  0.998842895      r_reg =   1.40868651E-03  v_iny =  0.140868649    
+   [diag] max|u|=   8.13317108      max|v|=   9.09904003      max T=   5000.00000      min T=   150.000000      max|H|=   21182800.0      flujo_calor_total=   796612.250    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         4000  T_cubo =   150.000000      masa_cubo =   1882.42566      altura_cubo =  0.998634279      r_reg =   1.44724653E-03  v_iny =  0.144724652    
+   [diag] max|u|=   8.10303688      max|v|=   9.00647736      max T=   5000.00000      min T=   150.000000      max|H|=   22186122.0      flujo_calor_total=   818417.938    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         4500  T_cubo =   150.000000      masa_cubo =   1882.03235      altura_cubo =  0.998425663      r_reg =   1.48043595E-03  v_iny =  0.148043588    
+   [diag] max|u|=   8.13667202      max|v|=   8.86699009      max T=   5000.00000      min T=   150.000000      max|H|=   22980012.0      flujo_calor_total=   837186.500    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         5000  T_cubo =   150.000000      masa_cubo =   1881.60046      altura_cubo =  0.998196542      r_reg =   1.51016796E-03  v_iny =  0.151016787    
+   [diag] max|u|=   7.92483616      max|v|=   8.69497871      max T=   5000.00000      min T=   150.000000      max|H|=   23680130.0      flujo_calor_total=   854000.000    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         5500  T_cubo =   150.000000      masa_cubo =   1881.15112      altura_cubo =  0.997958124      r_reg =   1.53664523E-03  v_iny =  0.153664514    
+   [diag] max|u|=   7.65394783      max|v|=   8.71451759      max T=   5000.00000      min T=   150.000000      max|H|=   24290700.0      flujo_calor_total=   868972.875    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         6000  T_cubo =   150.000000      masa_cubo =   1880.70166      altura_cubo =  0.997719705      r_reg =   1.56072376E-03  v_iny =  0.156072378    
+   [diag] max|u|=   7.47140884      max|v|=   8.84331703      max T=   5000.00000      min T=   150.000000      max|H|=   24813254.0      flujo_calor_total=   882589.312    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         6500  T_cubo =   150.000000      masa_cubo =   1880.25220      altura_cubo =  0.997481287      r_reg =   1.58257363E-03  v_iny =  0.158257350    
+   [diag] max|u|=   7.60293388      max|v|=   8.86638927      max T=   5000.00000      min T=   150.000000      max|H|=   25259944.0      flujo_calor_total=   894945.375    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         7000  T_cubo =   150.000000      masa_cubo =   1879.80286      altura_cubo =  0.997242868      r_reg =   1.60236715E-03  v_iny =  0.160236716    
+   [diag] max|u|=   8.12632656      max|v|=   8.84108734      max T=   5000.00000      min T=   150.000000      max|H|=   25630774.0      flujo_calor_total=   906138.625    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         7500  T_cubo =   150.000000      masa_cubo =   1879.35339      altura_cubo =  0.997004449      r_reg =   1.62095192E-03  v_iny =  0.162095189    
+   [diag] max|u|=   9.85115433      max|v|=   8.80195522      max T=   5000.00000      min T=   150.000000      max|H|=   25922820.0      flujo_calor_total=   916648.312    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         8000  T_cubo =   150.000000      masa_cubo =   1878.90393      altura_cubo =  0.996766031      r_reg =   1.63806102E-03  v_iny =  0.163806096    
+   [diag] max|u|=   8.55791950      max|v|=   8.76665497      max T=   5000.00000      min T=   150.000000      max|H|=   26145968.0      flujo_calor_total=   926323.500    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         8500  T_cubo =   150.000000      masa_cubo =   1878.45459      altura_cubo =  0.996527612      r_reg =   1.65374775E-03  v_iny =  0.165374771    
+   [diag] max|u|=   7.68039799      max|v|=   8.76374054      max T=   5000.00000      min T=   150.000000      max|H|=   26264494.0      flujo_calor_total=   935194.375    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         9000  T_cubo =   150.000000      masa_cubo =   1878.00513      altura_cubo =  0.996289194      r_reg =   1.66913716E-03  v_iny =  0.166913703    
+   [diag] max|u|=   7.48060131      max|v|=   8.77336693      max T=   5000.00000      min T=   150.000000      max|H|=   26320496.0      flujo_calor_total=   943897.000    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso         9500  T_cubo =   150.000000      masa_cubo =   1877.55566      altura_cubo =  0.996050775      r_reg =   1.68404670E-03  v_iny =  0.168404669    
+   [diag] max|u|=   7.44023323      max|v|=   8.76640892      max T=   5000.00000      min T=   150.000000      max|H|=   26339124.0      flujo_calor_total=   952328.375    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        10000  T_cubo =   150.000000      masa_cubo =   1877.06897      altura_cubo =  0.995792568      r_reg =   1.69783435E-03  v_iny =  0.169783428    
+   [diag] max|u|=   7.45482397      max|v|=   8.74911785      max T=   5000.00000      min T=   150.000000      max|H|=   26346646.0      flujo_calor_total=   960125.312    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        10500  T_cubo =   150.000000      masa_cubo =   1876.56335      altura_cubo =  0.995524347      r_reg =   1.71099824E-03  v_iny =  0.171099812    
+   [diag] max|u|=   7.43696547      max|v|=   8.73934269      max T=   5000.00000      min T=   150.000000      max|H|=   26350622.0      flujo_calor_total=   967569.500    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        11000  T_cubo =   150.000000      masa_cubo =   1876.05774      altura_cubo =  0.995256126      r_reg =   1.72366295E-03  v_iny =  0.172366291    
+   [diag] max|u|=   7.32293129      max|v|=   8.73284340      max T=   5000.00000      min T=   150.000000      max|H|=   26352316.0      flujo_calor_total=   974731.438    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        11500  T_cubo =   150.000000      masa_cubo =   1875.55225      altura_cubo =  0.994987905      r_reg =   1.73626014E-03  v_iny =  0.173626006    
+   [diag] max|u|=   7.31709146      max|v|=   8.72134972      max T=   5000.00000      min T=   150.000000      max|H|=   26352706.0      flujo_calor_total=   981855.062    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        12000  T_cubo =   150.000000      masa_cubo =   1875.04663      altura_cubo =  0.994719684      r_reg =   1.74783403E-03  v_iny =  0.174783409    
+   [diag] max|u|=   7.30902529      max|v|=   8.71377277      max T=   5000.00000      min T=   150.000000      max|H|=   26352938.0      flujo_calor_total=   988400.188    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        12500  T_cubo =   150.000000      masa_cubo =   1874.54102      altura_cubo =  0.994451463      r_reg =   1.75827183E-03  v_iny =  0.175827190    
+   [diag] max|u|=   7.29554701      max|v|=   8.70799637      max T=   5000.00000      min T=   150.000000      max|H|=   26353132.0      flujo_calor_total=   994302.750    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        13000  T_cubo =   150.000000      masa_cubo =   1874.03540      altura_cubo =  0.994183242      r_reg =   1.76785165E-03  v_iny =  0.176785156    
+   [diag] max|u|=   7.30013895      max|v|=   8.69668484      max T=   5000.00000      min T=   150.000000      max|H|=   26353374.0      flujo_calor_total=   999720.062    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        13500  T_cubo =   150.000000      masa_cubo =   1873.52979      altura_cubo =  0.993915021      r_reg =   1.77678152E-03  v_iny =  0.177678153    
+   [diag] max|u|=   7.29590893      max|v|=   8.69192600      max T=   5000.00000      min T=   150.000000      max|H|=   26353394.0      flujo_calor_total=   1004769.94    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        14000  T_cubo =   150.000000      masa_cubo =   1873.02417      altura_cubo =  0.993646801      r_reg =   1.78574724E-03  v_iny =  0.178574711    
+   [diag] max|u|=   7.27249622      max|v|=   8.69177628      max T=   5000.00000      min T=   150.000000      max|H|=   26353432.0      flujo_calor_total=   1009840.06    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        14500  T_cubo =   150.000000      masa_cubo =   1872.51868      altura_cubo =  0.993378580      r_reg =   1.79445953E-03  v_iny =  0.179445952    
+   [diag] max|u|=   7.28917265      max|v|=   8.68672466      max T=   5000.00000      min T=   150.000000      max|H|=   26353468.0      flujo_calor_total=   1014766.88    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        15000  T_cubo =   150.000000      masa_cubo =   1872.01306      altura_cubo =  0.993110359      r_reg =   1.80313818E-03  v_iny =  0.180313811    
+   [diag] max|u|=   7.28757668      max|v|=   8.67996883      max T=   5000.00000      min T=   150.000000      max|H|=   26353504.0      flujo_calor_total=   1019674.62    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        15500  T_cubo =   150.000000      masa_cubo =   1871.50745      altura_cubo =  0.992842138      r_reg =   1.81171088E-03  v_iny =  0.181171089    
+   [diag] max|u|=   7.27275705      max|v|=   8.67644882      max T=   5000.00000      min T=   150.000000      max|H|=   26353522.0      flujo_calor_total=   1024522.50    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        16000  T_cubo =   150.000000      masa_cubo =   1871.00183      altura_cubo =  0.992573917      r_reg =   1.81976659E-03  v_iny =  0.181976646    
+   [diag] max|u|=   7.27331448      max|v|=   8.67386436      max T=   5000.00000      min T=   150.000000      max|H|=   26353566.0      flujo_calor_total=   1029078.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        16500  T_cubo =   150.000000      masa_cubo =   1870.49622      altura_cubo =  0.992305696      r_reg =   1.82741904E-03  v_iny =  0.182741910    
+   [diag] max|u|=   7.27395439      max|v|=   8.67160797      max T=   5000.00000      min T=   150.000000      max|H|=   26353584.0      flujo_calor_total=   1033405.50    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        17000  T_cubo =   150.000000      masa_cubo =   1869.99060      altura_cubo =  0.992037475      r_reg =   1.83417159E-03  v_iny =  0.183417156    
+   [diag] max|u|=   7.27120113      max|v|=   8.67039776      max T=   5000.00000      min T=   150.000000      max|H|=   26353606.0      flujo_calor_total=   1037224.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        17500  T_cubo =   150.000000      masa_cubo =   1869.48499      altura_cubo =  0.991769254      r_reg =   1.84046570E-03  v_iny =  0.184046566    
+   [diag] max|u|=   7.26980400      max|v|=   8.66849804      max T=   5000.00000      min T=   150.000000      max|H|=   26353630.0      flujo_calor_total=   1040783.38    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        18000  T_cubo =   150.000000      masa_cubo =   1868.97949      altura_cubo =  0.991501033      r_reg =   1.84664153E-03  v_iny =  0.184664160    
+   [diag] max|u|=   7.27069378      max|v|=   8.66654587      max T=   5000.00000      min T=   150.000000      max|H|=   26353634.0      flujo_calor_total=   1044275.81    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        18500  T_cubo =   150.000000      masa_cubo =   1868.47388      altura_cubo =  0.991232812      r_reg =   1.85260910E-03  v_iny =  0.185260907    
+   [diag] max|u|=   7.26850653      max|v|=   8.66640091      max T=   5000.00000      min T=   150.000000      max|H|=   26353618.0      flujo_calor_total=   1047650.44    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        19000  T_cubo =   150.000000      masa_cubo =   1867.96826      altura_cubo =  0.990964592      r_reg =   1.85859820E-03  v_iny =  0.185859814    
+   [diag] max|u|=   7.26781559      max|v|=   8.66567612      max T=   5000.00000      min T=   150.000000      max|H|=   26353618.0      flujo_calor_total=   1051037.25    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        19500  T_cubo =   150.000000      masa_cubo =   1867.46265      altura_cubo =  0.990696371      r_reg =   1.86358870E-03  v_iny =  0.186358854    
+   [diag] max|u|=   7.27019691      max|v|=   8.66389179      max T=   5000.00000      min T=   150.000000      max|H|=   26353658.0      flujo_calor_total=   1053859.38    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        20000  T_cubo =   150.000000      masa_cubo =   1866.95703      altura_cubo =  0.990428150      r_reg =   1.86745648E-03  v_iny =  0.186745644    
+   [diag] max|u|=   7.26759243      max|v|=   8.66167259      max T=   5000.00000      min T=   150.000000      max|H|=   26353734.0      flujo_calor_total=   1056046.62    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        20500  T_cubo =   150.000000      masa_cubo =   1866.45142      altura_cubo =  0.990159929      r_reg =   1.86986628E-03  v_iny =  0.186986625    
+   [diag] max|u|=   7.26563978      max|v|=   8.66155720      max T=   5000.00000      min T=   150.000000      max|H|=   26353732.0      flujo_calor_total=   1057409.38    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        21000  T_cubo =   150.000000      masa_cubo =   1865.94592      altura_cubo =  0.989891708      r_reg =   1.87110517E-03  v_iny =  0.187110513    
+   [diag] max|u|=   7.28326225      max|v|=   8.66376591      max T=   5000.00000      min T=   150.000000      max|H|=   26353706.0      flujo_calor_total=   1058110.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        21500  T_cubo =   150.000000      masa_cubo =   1865.44031      altura_cubo =  0.989623487      r_reg =   1.87284930E-03  v_iny =  0.187284917    
+   [diag] max|u|=   7.79420948      max|v|=   8.66449642      max T=   5000.00000      min T=   150.000000      max|H|=   26353662.0      flujo_calor_total=   1059096.25    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        22000  T_cubo =   150.000000      masa_cubo =   1864.93469      altura_cubo =  0.989355266      r_reg =   1.87639985E-03  v_iny =  0.187639982    
+   [diag] max|u|=   7.31808758      max|v|=   8.66276550      max T=   5000.00000      min T=   150.000000      max|H|=   26353660.0      flujo_calor_total=   1061104.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        22500  T_cubo =   150.000000      masa_cubo =   1864.42908      altura_cubo =  0.989087045      r_reg =   1.88053260E-03  v_iny =  0.188053250    
+   [diag] max|u|=   7.26914310      max|v|=   8.66033936      max T=   5000.00000      min T=   150.000000      max|H|=   26353670.0      flujo_calor_total=   1063441.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        23000  T_cubo =   150.000000      masa_cubo =   1863.92346      altura_cubo =  0.988818824      r_reg =   1.88401819E-03  v_iny =  0.188401803    
+   [diag] max|u|=   7.26574230      max|v|=   8.65888214      max T=   5000.00000      min T=   150.000000      max|H|=   26353680.0      flujo_calor_total=   1065412.25    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        23500  T_cubo =   150.000000      masa_cubo =   1863.41785      altura_cubo =  0.988550603      r_reg =   1.88618945E-03  v_iny =  0.188618943    
+   [diag] max|u|=   7.26517200      max|v|=   8.65841293      max T=   5000.00000      min T=   150.000000      max|H|=   26353712.0      flujo_calor_total=   1066640.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        24000  T_cubo =   150.000000      masa_cubo =   1862.91223      altura_cubo =  0.988282382      r_reg =   1.88743637E-03  v_iny =  0.188743621    
+   [diag] max|u|=   7.26498890      max|v|=   8.65853214      max T=   5000.00000      min T=   150.000000      max|H|=   26353716.0      flujo_calor_total=   1067345.25    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        24500  T_cubo =   150.000000      masa_cubo =   1862.35303      altura_cubo =  0.987985671      r_reg =   1.88842497E-03  v_iny =  0.188842505    
+   [diag] max|u|=   7.30229378      max|v|=   8.65870190      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1067904.38    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        25000  T_cubo =   150.000000      masa_cubo =   1861.79126      altura_cubo =  0.987687647      r_reg =   1.88995234E-03  v_iny =  0.188995227    
+   [diag] max|u|=   7.63462973      max|v|=   8.65881824      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1068768.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        25500  T_cubo =   150.000000      masa_cubo =   1861.22949      altura_cubo =  0.987389624      r_reg =   1.89247879E-03  v_iny =  0.189247876    
+   [diag] max|u|=   7.64629459      max|v|=   8.65877056      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1070196.75    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        26000  T_cubo =   150.000000      masa_cubo =   1860.66772      altura_cubo =  0.987091601      r_reg =   1.89597707E-03  v_iny =  0.189597696    
+   [diag] max|u|=   7.37151003      max|v|=   8.65851784      max T=   5000.00000      min T=   150.000000      max|H|=   26353718.0      flujo_calor_total=   1072175.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        26500  T_cubo =   150.000000      masa_cubo =   1860.10583      altura_cubo =  0.986793578      r_reg =   1.89978781E-03  v_iny =  0.189978778    
+   [diag] max|u|=   7.26719666      max|v|=   8.65827084      max T=   5000.00000      min T=   150.000000      max|H|=   26353718.0      flujo_calor_total=   1074330.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        27000  T_cubo =   150.000000      masa_cubo =   1859.54407      altura_cubo =  0.986495554      r_reg =   1.90307433E-03  v_iny =  0.190307423    
+   [diag] max|u|=   7.26712418      max|v|=   8.65794086      max T=   5000.00000      min T=   150.000000      max|H|=   26353718.0      flujo_calor_total=   1076188.50    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        27500  T_cubo =   150.000000      masa_cubo =   1858.98230      altura_cubo =  0.986197531      r_reg =   1.90571335E-03  v_iny =  0.190571338    
+   [diag] max|u|=   7.26704025      max|v|=   8.65774155      max T=   5000.00000      min T=   150.000000      max|H|=   26353718.0      flujo_calor_total=   1077680.88    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        28000  T_cubo =   150.000000      masa_cubo =   1858.42053      altura_cubo =  0.985899508      r_reg =   1.90826680E-03  v_iny =  0.190826669    
+   [diag] max|u|=   7.64330864      max|v|=   8.65762043      max T=   5000.00000      min T=   150.000000      max|H|=   26353718.0      flujo_calor_total=   1079124.88    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        28500  T_cubo =   150.000000      masa_cubo =   1857.85876      altura_cubo =  0.985601485      r_reg =   1.91135833E-03  v_iny =  0.191135839    
+   [diag] max|u|=   7.26696825      max|v|=   8.65758038      max T=   5000.00000      min T=   150.000000      max|H|=   26353718.0      flujo_calor_total=   1080873.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        29000  T_cubo =   150.000000      masa_cubo =   1857.29700      altura_cubo =  0.985303462      r_reg =   1.91455614E-03  v_iny =  0.191455603    
+   [diag] max|u|=   7.26692867      max|v|=   8.65737629      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1082681.50    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        29500  T_cubo =   150.000000      masa_cubo =   1856.73523      altura_cubo =  0.985005438      r_reg =   1.91683380E-03  v_iny =  0.191683367    
+   [diag] max|u|=   7.26713467      max|v|=   8.65712738      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1083969.50    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        30000  T_cubo =   150.000000      masa_cubo =   1856.17346      altura_cubo =  0.984707415      r_reg =   1.91787619E-03  v_iny =  0.191787615    
+   [diag] max|u|=   7.26695967      max|v|=   8.65709877      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1084559.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        30500  T_cubo =   150.000000      masa_cubo =   1855.61169      altura_cubo =  0.984409392      r_reg =   1.91857642E-03  v_iny =  0.191857636    
+   [diag] max|u|=   7.66413546      max|v|=   8.65707111      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1084955.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        31000  T_cubo =   150.000000      masa_cubo =   1855.04993      altura_cubo =  0.984111369      r_reg =   1.91992579E-03  v_iny =  0.191992566    
+   [diag] max|u|=   7.48877335      max|v|=   8.65711594      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1085718.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        31500  T_cubo =   150.000000      masa_cubo =   1854.48816      altura_cubo =  0.983813345      r_reg =   1.92206365E-03  v_iny =  0.192206368    
+   [diag] max|u|=   7.26699686      max|v|=   8.65691185      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1086927.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        32000  T_cubo =   150.000000      masa_cubo =   1853.92639      altura_cubo =  0.983515322      r_reg =   1.92465656E-03  v_iny =  0.192465648    
+   [diag] max|u|=   7.26697302      max|v|=   8.65657520      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1088393.25    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        32500  T_cubo =   150.000000      masa_cubo =   1853.36462      altura_cubo =  0.983217299      r_reg =   1.92723598E-03  v_iny =  0.192723602    
+   [diag] max|u|=   7.26710892      max|v|=   8.65631676      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1089852.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        33000  T_cubo =   150.000000      masa_cubo =   1852.80286      altura_cubo =  0.982919276      r_reg =   1.92975171E-03  v_iny =  0.192975178    
+   [diag] max|u|=   7.26704931      max|v|=   8.65619278      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1091274.62    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        33500  T_cubo =   150.000000      masa_cubo =   1852.24109      altura_cubo =  0.982621253      r_reg =   1.93210307E-03  v_iny =  0.193210304    
+   [diag] max|u|=   7.26697397      max|v|=   8.65600872      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1092604.25    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        34000  T_cubo =   150.000000      masa_cubo =   1851.67932      altura_cubo =  0.982323229      r_reg =   1.93421997E-03  v_iny =  0.193421990    
+   [diag] max|u|=   7.26706409      max|v|=   8.65585518      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1093801.38    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        34500  T_cubo =   150.000000      masa_cubo =   1851.11755      altura_cubo =  0.982025206      r_reg =   1.93612941E-03  v_iny =  0.193612933    
+   [diag] max|u|=   7.26706886      max|v|=   8.65576649      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1094881.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        35000  T_cubo =   150.000000      masa_cubo =   1850.55579      altura_cubo =  0.981727183      r_reg =   1.93792523E-03  v_iny =  0.193792522    
+   [diag] max|u|=   7.26710081      max|v|=   8.65571404      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1095896.75    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        35500  T_cubo =   150.000000      masa_cubo =   1849.99402      altura_cubo =  0.981429160      r_reg =   1.93969696E-03  v_iny =  0.193969682    
+   [diag] max|u|=   7.26709175      max|v|=   8.65557861      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1096898.62    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        36000  T_cubo =   150.000000      masa_cubo =   1849.43225      altura_cubo =  0.981131136      r_reg =   1.94147206E-03  v_iny =  0.194147199    
+   [diag] max|u|=   7.26712132      max|v|=   8.65548229      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1097902.50    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        36500  T_cubo =   150.000000      masa_cubo =   1848.87036      altura_cubo =  0.980833113      r_reg =   1.94341841E-03  v_iny =  0.194341838    
+   [diag] max|u|=   7.26716566      max|v|=   8.65534592      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1099003.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        37000  T_cubo =   150.000000      masa_cubo =   1848.30859      altura_cubo =  0.980535090      r_reg =   1.94531877E-03  v_iny =  0.194531873    
+   [diag] max|u|=   7.26718092      max|v|=   8.65522194      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1100077.75    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        37500  T_cubo =   150.000000      masa_cubo =   1847.74683      altura_cubo =  0.980237067      r_reg =   1.94707210E-03  v_iny =  0.194707200    
+   [diag] max|u|=   7.26719904      max|v|=   8.65504169      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1101069.25    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        38000  T_cubo =   150.000000      masa_cubo =   1847.18506      altura_cubo =  0.979939044      r_reg =   1.94874161E-03  v_iny =  0.194874167    
+   [diag] max|u|=   7.26724291      max|v|=   8.65495300      max T=   5000.00000      min T=   150.000000      max|H|=   26353720.0      flujo_calor_total=   1102013.38    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        38500  T_cubo =   150.000000      masa_cubo =   1846.76013      altura_cubo =  0.979713619      r_reg =   1.34716183E-03  v_iny =  0.134716183    
+   [diag] max|u|=   7.26249027      max|v|=   8.03635025      max T=   5000.00000      min T=   150.000000      max|H|=   26353662.0      flujo_calor_total=   761820.062    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        39000  T_cubo =   150.000000      masa_cubo =   1846.33533      altura_cubo =  0.979488254      r_reg =   1.57170661E-03  v_iny =  0.157170653    
+   [diag] max|u|=   7.53534651      max|v|=   8.49215698      max T=   5000.00000      min T=   150.000000      max|H|=   26353590.0      flujo_calor_total=   888800.062    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        39500  T_cubo =   150.000000      masa_cubo =   1845.88599      altura_cubo =  0.979249835      r_reg =   1.64103834E-03  v_iny =  0.164103836    
+   [diag] max|u|=   7.86320305      max|v|=   8.55313587      max T=   5000.00000      min T=   150.000000      max|H|=   26353556.0      flujo_calor_total=   928007.188    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        40000  T_cubo =   150.000000      masa_cubo =   1845.43652      altura_cubo =  0.979011416      r_reg =   1.67767343E-03  v_iny =  0.167767331    
+   [diag] max|u|=   7.98054123      max|v|=   8.57348728      max T=   5000.00000      min T=   150.000000      max|H|=   26353554.0      flujo_calor_total=   948724.312    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        40500  T_cubo =   150.000000      masa_cubo =   1844.95483      altura_cubo =  0.978755891      r_reg =   1.70111703E-03  v_iny =  0.170111701    
+   [diag] max|u|=   7.95300245      max|v|=   8.57346439      max T=   5000.00000      min T=   150.000000      max|H|=   26353564.0      flujo_calor_total=   961981.688    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        41000  T_cubo =   150.000000      masa_cubo =   1844.44922      altura_cubo =  0.978487670      r_reg =   1.71781471E-03  v_iny =  0.171781465    
+   [diag] max|u|=   7.74758530      max|v|=   8.56946659      max T=   5000.00000      min T=   150.000000      max|H|=   26353570.0      flujo_calor_total=   971424.250    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        41500  T_cubo =   150.000000      masa_cubo =   1843.94360      altura_cubo =  0.978219450      r_reg =   1.73063972E-03  v_iny =  0.173063964    
+   [diag] max|u|=   7.64326620      max|v|=   8.56619549      max T=   5000.00000      min T=   150.000000      max|H|=   26353570.0      flujo_calor_total=   978676.750    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        42000  T_cubo =   150.000000      masa_cubo =   1843.43811      altura_cubo =  0.977951229      r_reg =   1.74130441E-03  v_iny =  0.174130440    
+   [diag] max|u|=   7.72562075      max|v|=   8.56480598      max T=   5000.00000      min T=   150.000000      max|H|=   26353582.0      flujo_calor_total=   984707.688    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        42500  T_cubo =   150.000000      masa_cubo =   1842.93250      altura_cubo =  0.977683008      r_reg =   1.75119843E-03  v_iny =  0.175119832    
+   [diag] max|u|=   7.81086874      max|v|=   8.56290627      max T=   5000.00000      min T=   150.000000      max|H|=   26353578.0      flujo_calor_total=   990302.688    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        43000  T_cubo =   150.000000      masa_cubo =   1842.42688      altura_cubo =  0.977414787      r_reg =   1.76108803E-03  v_iny =  0.176108792    
+   [diag] max|u|=   7.81284046      max|v|=   8.55942345      max T=   5000.00000      min T=   150.000000      max|H|=   26353578.0      flujo_calor_total=   995895.250    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        43500  T_cubo =   150.000000      masa_cubo =   1841.92126      altura_cubo =  0.977146566      r_reg =   1.77104364E-03  v_iny =  0.177104369    
+   [diag] max|u|=   7.75241184      max|v|=   8.55552197      max T=   5000.00000      min T=   150.000000      max|H|=   26353568.0      flujo_calor_total=   1001525.19    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        44000  T_cubo =   150.000000      masa_cubo =   1841.41565      altura_cubo =  0.976878345      r_reg =   1.78047398E-03  v_iny =  0.178047404    
+   [diag] max|u|=   7.71304274      max|v|=   8.55231953      max T=   5000.00000      min T=   150.000000      max|H|=   26353566.0      flujo_calor_total=   1006858.06    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        44500  T_cubo =   150.000000      masa_cubo =   1840.91003      altura_cubo =  0.976610124      r_reg =   1.78884878E-03  v_iny =  0.178884879    
+   [diag] max|u|=   7.92615604      max|v|=   8.54971504      max T=   5000.00000      min T=   150.000000      max|H|=   26353564.0      flujo_calor_total=   1011594.00    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        45000  T_cubo =   150.000000      masa_cubo =   1840.40454      altura_cubo =  0.976341903      r_reg =   1.79600215E-03  v_iny =  0.179600209    
+   [diag] max|u|=   8.76984978      max|v|=   8.54747009      max T=   5000.00000      min T=   150.000000      max|H|=   26353562.0      flujo_calor_total=   1015639.19    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        45500  T_cubo =   150.000000      masa_cubo =   1839.89893      altura_cubo =  0.976073682      r_reg =   1.80295506E-03  v_iny =  0.180295497    
+   [diag] max|u|=   10.8471155      max|v|=   8.54533386      max T=   5000.00000      min T=   150.000000      max|H|=   26353560.0      flujo_calor_total=   1019571.06    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        46000  T_cubo =   150.000000      masa_cubo =   1839.39331      altura_cubo =  0.975805461      r_reg =   1.81126350E-03  v_iny =  0.181126356    
+   [diag] max|u|=   10.5109625      max|v|=   8.54361534      max T=   5000.00000      min T=   150.000000      max|H|=   26353574.0      flujo_calor_total=   1024269.56    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        46500  T_cubo =   150.000000      masa_cubo =   1838.88770      altura_cubo =  0.975537241      r_reg =   1.82114437E-03  v_iny =  0.182114422    
+   [diag] max|u|=   9.03501415      max|v|=   8.54172897      max T=   5000.00000      min T=   150.000000      max|H|=   26353572.0      flujo_calor_total=   1029857.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        47000  T_cubo =   150.000000      masa_cubo =   1838.38208      altura_cubo =  0.975269020      r_reg =   1.83169963E-03  v_iny =  0.183169961    
+   [diag] max|u|=   7.19956636      max|v|=   8.54043293      max T=   5000.00000      min T=   150.000000      max|H|=   26353570.0      flujo_calor_total=   1035826.12    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        47500  T_cubo =   150.000000      masa_cubo =   1837.87646      altura_cubo =  0.975000799      r_reg =   1.84163079E-03  v_iny =  0.184163064    
+   [diag] max|u|=   7.19705343      max|v|=   8.53947258      max T=   5000.00000      min T=   150.000000      max|H|=   26353568.0      flujo_calor_total=   1041442.19    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        48000  T_cubo =   150.000000      masa_cubo =   1837.37085      altura_cubo =  0.974732578      r_reg =   1.84987171E-03  v_iny =  0.184987158    
+   [diag] max|u|=   7.19546652      max|v|=   8.53880978      max T=   5000.00000      min T=   150.000000      max|H|=   26353566.0      flujo_calor_total=   1046102.44    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        48500  T_cubo =   150.000000      masa_cubo =   1836.86536      altura_cubo =  0.974464357      r_reg =   1.85636536E-03  v_iny =  0.185636535    
+   [diag] max|u|=   7.19434834      max|v|=   8.53845501      max T=   5000.00000      min T=   150.000000      max|H|=   26353566.0      flujo_calor_total=   1049774.62    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        49000  T_cubo =   150.000000      masa_cubo =   1836.35974      altura_cubo =  0.974196136      r_reg =   1.86184153E-03  v_iny =  0.186184153    
+   [diag] max|u|=   7.19325113      max|v|=   8.53774929      max T=   5000.00000      min T=   150.000000      max|H|=   26353564.0      flujo_calor_total=   1052871.38    
+ max YF =   1.00000000      max YO =   1.00000000    
+ Paso        49500  T_cubo =   150.000000      masa_cubo =   1835.85413      altura_cubo =  0.973927915      r_reg =   1.86666974E-03  v_iny =  0.186666965    
+   [diag] max|u|=   7.19217205      max|v|=   8.53712368      max T=   5000.00000      min T=   150.000000      max|H|=   26353564.0      flujo_calor_total=   1055601.75    
