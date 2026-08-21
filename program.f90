@@ -27,7 +27,7 @@ program navier_stokes_python_triangulos
 
   ! Campos físicos
   real :: u(n_nodos), v(n_nodos), p(n_nodos)
-  real :: u_star(n_nodos), v_star(n_nodos), p_new(n_nodos)
+  real :: u_star(n_nodos), v_star(n_nodos)
   real :: grad_u_x(n_nodos), grad_u_y(n_nodos)
   real :: grad_v_x(n_nodos), grad_v_y(n_nodos)
   real :: grad_p_x(n_nodos), grad_p_y(n_nodos)
@@ -41,7 +41,9 @@ program navier_stokes_python_triangulos
   real, parameter :: rho = 1.0            ! densidad de referencia (usada en Poisson)
   real, parameter :: nu = 0.01            !Viscosidad cinemática (m²/s)
   real, parameter :: U_inf = 2.0          ! se rompe en 5 o mayor a 2 velocidad alta del oxidante
-  integer, parameter :: MAX_ITER_P = 200
+  integer, parameter :: MAX_ITER_P = 1000
+  real,    parameter :: omega_sor  = 1.8      ! sobre-relajación del Poisson
+  real,    parameter :: tol_p      = 1.0e-5   ! residuo relativo de corte
 
   ! VARIABLES AUXILIARES
   integer :: i, j, k, tri, iter, iter_p, frame, v_idx
@@ -57,6 +59,7 @@ program navier_stokes_python_triangulos
   integer :: pos
   real :: dif_u, dif_v
   real :: suma, b_i, suma_off
+  real :: res_p, dif_p, s_diag_ef
 
   !!!!! CUBO Y FUEGO !!!!!
   ! Parámetros geométricos del cubo
@@ -77,7 +80,7 @@ program navier_stokes_python_triangulos
   real, parameter :: rho_solido = 100.0       ! kg/m³
   real, parameter :: cp_solido  = 2000.0      ! J/kg·K
   real, parameter :: T_sub      = 150.0       ! K (idealizado)
-  real, parameter :: L_sub      = 50000.0    ! J/kg !antes 500000 calor latenete de sublimacion 
+  real, parameter :: L_sub      = 600000.0   ! J/kg, calor latente de sublimación del CH4
   real :: r_reg                               ! velocidad de regresión (m/s) - ahora variable
 
   logical :: es_obstaculo(n_nodos)
@@ -150,12 +153,12 @@ program navier_stokes_python_triangulos
 
   ! Variables para densidad local
   real :: rho_local(n_nodos)
+  real :: rho_ref            ! densidad del oxidante a T_ambiente (misma ley de gas ideal)
   real :: lambda_ef = 1.0   ! con 5 funciona bien conductividad térmica efectiva (W/m·K) antes 0.1
 
   ! Variables escalares (movidas fuera del bucle)
   real :: suma_Yk_Wk
   real :: cp_CH4, cp_O2, cp_CO2, cp_H2O, cp_mezcla
-  real :: calor_reaccion
   ! ========================================================
 
   ! 1. GENERACIÓN DE LA MALLA
@@ -269,9 +272,11 @@ program navier_stokes_python_triangulos
       end if
   end do
 
+  rho_ref = p_atm * W_O2 / (Ru * T_ambiente)
+
   ! 3. INICIALIZACIÓN
   u(:) = U_inf; v(:) = 0.0; p(:) = 0.0
-  u_star(:) = U_inf; v_star(:) = 0.0; p_new(:) = 0.0
+  u_star(:) = U_inf; v_star(:) = 0.0
   frame = 0
 
   T(:) = T_ambiente
@@ -280,7 +285,7 @@ program navier_stokes_python_triangulos
   YCO2(:) = 0.0
   YH2O(:) = 0.0
   H(:) = 0.0
-  T_cubo = 300.0!T_ambiente
+  T_cubo = T_sub   ! metano sólido en equilibrio en su punto de sublimación
   masa_cubo = rho_solido * (2.0*cubo_mitad_ancho) * (2.0*cubo_mitad_alto)
 
   do i = 1, n_nodos
@@ -326,14 +331,31 @@ program navier_stokes_python_triangulos
         do idx_vecino = 1, n_vecinos(i)
           j = vecinos(i, idx_vecino)
           if (.not. es_obstaculo(j)) then
-            flujo_calor_total = flujo_calor_total + lambda_ef * (T(j) - T(i)) / sqrt(dx**2 + dy**2)
+            ! -lambda*K_ij*(T_j-T_i) es el flujo de calor en W (por unidad de
+            ! profundidad) que entra al sólido: reusa la rigidez FEM ya ensamblada,
+            ! en vez de lambda*dT/h, que es una densidad de flujo en W/m2.
+            flujo_calor_total = flujo_calor_total - lambda_ef * S_val(i, idx_vecino) * (T(j) - T(i))
           end if
         end do
       end if
     end do
 
-    tasa_sublimacion = flujo_calor_total / L_sub
-    if (tasa_sublimacion < 0.0) tasa_sublimacion = 0.0
+    ! Balance de energía del sólido con cambio de fase:
+    ! por debajo de T_sub el calor entrante es sensible y calienta el bloque;
+    ! al alcanzar T_sub la temperatura queda fijada y todo el calor entrante
+    ! se invierte en calor latente de sublimación.
+    if (flujo_calor_total > 0.0 .and. masa_cubo > 1.0e-6) then
+      if (T_cubo < T_sub) then
+        tasa_sublimacion = 0.0
+        T_cubo = T_cubo + dt * flujo_calor_total / (masa_cubo * cp_solido)
+        if (T_cubo > T_sub) T_cubo = T_sub
+      else
+        T_cubo = T_sub
+        tasa_sublimacion = flujo_calor_total / L_sub
+      end if
+    else
+      tasa_sublimacion = 0.0
+    end if
 
     A_cubo = 2.0 * cubo_mitad_ancho
     r_reg = tasa_sublimacion / (rho_solido * A_cubo)
@@ -421,10 +443,18 @@ program navier_stokes_python_triangulos
           j = vecinos(i, idx_vecino)
           if (.not. es_obstaculo(j)) then
             if (masa_cubo > 0.0 .and. tasa_sublimacion > 0.0) then
-              YF(j) = 0.1
+              ! El gas que deja una superficie que sublima es metano puro a
+              ! T_sub. Antes se ponía YF=0.1 con el resto en 0 (las fracciones
+              ! sumaban 0.1, no 1) y no se tocaba H, así que la inversión H->T
+              ! resolvía 0.1*h_CH4(T)=H y, al ir acumulando H el calor que
+              ! llegaba por difusión, la temperatura subía en trinquete.
+              YF(j) = 1.0
               YO(j) = 0.0
               YCO2(j) = 0.0
               YH2O(j) = 0.0
+              ! H se recalcula con la T local, no con T_sub: fijar T_sub en toda
+              ! la capa anulaba el gradiente térmico que alimenta la sublimación.
+              call interpolar_tabla(T(j), T_tabla, h_CH4_tabla, n_tabla, H(j))
               v(j) = v_inyeccion
               u(j) = 0.0
             end if
@@ -453,14 +483,17 @@ program navier_stokes_python_triangulos
         cp_mezcla = YF(i)*cp_CH4 + YO(i)*cp_O2 + YCO2(i)*cp_CO2 + YH2O(i)*cp_H2O
         if (cp_mezcla < 1.0e-10) cp_mezcla = 1004.0
 
-        calor_reaccion = (hf_CH4 + 2.0*hf_O2 - hf_CO2 - 2.0*hf_H2O) * omega
-
         YF_new(i)  = YF(i)  + dt * ( -adv_YF(i)  + D_species * lap_YF(i)  - omega )
         YO_new(i)  = YO(i)  + dt * ( -adv_YO(i)  + D_species * lap_YO(i)  - s * omega )
         YCO2_new(i)= YCO2(i)+ dt * ( -adv_YCO2(i)+ D_species * lap_YCO2(i)+ r_CO2 * omega )
         YH2O_new(i)= YH2O(i)+ dt * ( -adv_YH2O(i)+ D_species * lap_YH2O(i)+ r_H2O * omega )
 
-        H_new(i) = H(i) + dt * ( -adv_H(i) + D_thermal * lap_H(i) + calor_reaccion )
+        ! H = suma(Y_k*h_k) con las h_k ABSOLUTAS de las tablas NASA, que ya
+        ! incluyen la entalpía de formación. El calor de reacción entra entonces
+        ! solo por el cambio de composición y NO lleva término fuente: sumarlo
+        ! además lo contaba dos veces y llevaba la llama al techo de 5000 K de
+        ! las tablas. Sin él la adiabática da 3284 K (CH4/O2 real ~3500 K).
+        H_new(i) = H(i) + dt * ( -adv_H(i) + D_thermal * lap_H(i) )
     end do
  !aqui cambio 
     if (mod(iter, 500) == 0) then
@@ -491,8 +524,7 @@ end if
                                 h_CH4_tabla, h_O2_tabla, h_CO2_tabla, h_H2O_tabla, &
                                 n_tabla, T_ambiente)
 
-    ! Calentamiento del cubo
-    T_cubo = T_cubo + dt * (flujo_calor_total / (masa_cubo * cp_cubo))
+    ! T_cubo se actualiza en el balance de fase (ver SUBLIMACIÓN REAL)
     do i = 1, n_nodos
         if (es_obstaculo(i)) T(i) = T_cubo
     end do
@@ -524,7 +556,10 @@ end if
       dif_u = -nu * dif_u / M_lump(i)
       dif_v = -nu * dif_v / M_lump(i)
 
-      fuente_flotacion = -g_acel * beta * (T(i) - T_ambiente)
+      ! Razón de densidades real en vez de la linealización de Boussinesq:
+      ! beta*(T-T0) llega a 15.7 en la llama (Boussinesq exige <<1) y da 154 m/s2.
+      ! Esta forma usa el rho_local que ya se calcula, y satura en g cuando rho->0.
+      fuente_flotacion = g_acel * (rho_local(i) - rho_ref) / rho_ref
 
       u_star(i) = u(i) + dt * ( -conv_u(i) + dif_u )
       v_star(i) = v(i) + dt * ( -conv_v(i) + dif_v + fuente_flotacion )
@@ -539,33 +574,51 @@ end if
       div_star(i) = grad_u_x(i) + grad_v_y(i)
     end do
 
-    ! Paso 5.4: Poisson
-    p_new = p
+    ! Paso 5.4: Poisson (SOR in-place, corte por residuo)
     do iter_p = 1, MAX_ITER_P
+      res_p = 0.0
       do i = 1, n_nodos
         if (abs(x(i) - Lx) < 0.5*dx) then
-          p_new(i) = 0.0
+          p(i) = 0.0        ! salida: Dirichlet
           cycle
         end if
-        if (es_obstaculo(i)) then
-            p_new(i) = p(i)
-            cycle
-        end if
+        if (es_obstaculo(i)) cycle   ! el sólido no entra en el sistema
 
+        ! Sólo se acoplan los vecinos fluidos, y la diagonal se rearma con esos
+        ! mismos términos: eso impone gradiente normal nulo sobre la superficie
+        ! del cubo (Neumann homogéneo), en vez del p=0 espurio que quedaba antes.
         b_i = -(rho / dt) * div_star(i) * M_lump(i)
         suma = b_i
+        s_diag_ef = 0.0
         do v_idx = 1, n_vecinos(i)
           j = vecinos(i, v_idx)
+          if (es_obstaculo(j)) cycle
           suma = suma - S_val(i, v_idx) * p(j)
+          s_diag_ef = s_diag_ef - S_val(i, v_idx)
         end do
 
-        if (abs(S_diag(i)) > 1.0e-12) then
-          p_new(i) = suma / S_diag(i)
-        else
-          p_new(i) = 0.0
+        if (s_diag_ef > 1.0e-12) then
+          dif_p = suma / s_diag_ef - p(i)
+          p(i) = p(i) + omega_sor * dif_p
+          res_p = max(res_p, abs(dif_p))
         end if
       end do
-      p = p_new
+      if (res_p < tol_p * max(1.0, maxval(abs(p)))) exit
+    end do
+
+    ! Extender p al sólido como media de sus vecinos fluidos, para que el
+    ! gradiente en la interfaz vea Neumann y no un salto artificial hacia p=0.
+    do i = 1, n_nodos
+      if (.not. es_obstaculo(i)) cycle
+      suma = 0.0
+      k_count = 0
+      do v_idx = 1, n_vecinos(i)
+        j = vecinos(i, v_idx)
+        if (es_obstaculo(j)) cycle
+        suma = suma + p(j)
+        k_count = k_count + 1
+      end do
+      if (k_count > 0) p(i) = suma / real(k_count)
     end do
 
     ! Paso 5.5: Corrección
