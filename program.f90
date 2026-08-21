@@ -40,7 +40,7 @@ program navier_stokes_python_triangulos
   real, parameter :: dt = 0.0003
   real, parameter :: rho = 1.0            ! densidad de referencia (usada en Poisson)
   real, parameter :: nu = 0.01            !Viscosidad cinemática (m²/s)
-  real, parameter :: U_inf = 2.0          ! velocidad alta del oxidante
+  real, parameter :: U_inf = 2.0          ! se rompe en 5 o mayor a 2 velocidad alta del oxidante
   integer, parameter :: MAX_ITER_P = 200
 
   ! VARIABLES AUXILIARES
@@ -150,7 +150,7 @@ program navier_stokes_python_triangulos
 
   ! Variables para densidad local
   real :: rho_local(n_nodos)
-  real :: lambda_ef = 1.0   ! conductividad térmica efectiva (W/m·K) antes 0.1
+  real :: lambda_ef = 1.0   ! con 5 funciona bien conductividad térmica efectiva (W/m·K) antes 0.1
 
   ! Variables escalares (movidas fuera del bucle)
   real :: suma_Yk_Wk
@@ -280,7 +280,7 @@ program navier_stokes_python_triangulos
   YCO2(:) = 0.0
   YH2O(:) = 0.0
   H(:) = 0.0
-  T_cubo = T_ambiente
+  T_cubo = 300.0!T_ambiente
   masa_cubo = rho_solido * (2.0*cubo_mitad_ancho) * (2.0*cubo_mitad_alto)
 
   do i = 1, n_nodos
@@ -462,7 +462,11 @@ program navier_stokes_python_triangulos
 
         H_new(i) = H(i) + dt * ( -adv_H(i) + D_thermal * lap_H(i) + calor_reaccion )
     end do
-
+ !aqui cambio 
+    if (mod(iter, 500) == 0) then
+    print *, "max YF =", maxval(YF), " max YO =", maxval(YO)
+end if
+!aqui termina 
     ! Aplicar límites y actualizar
     do i = 1, n_nodos
         if (es_obstaculo(i)) then
