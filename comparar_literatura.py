@@ -4,52 +4,7 @@
 =============================================================================
  comparar_literatura.py   (version 2, corregida)
  Compara la simulacion contra los datos experimentales publicados.
-=============================================================================
-
- QUE CAMBIO RESPECTO DE LA VERSION 1
- -----------------------------------
-
- (1) EL ESPESOR DE CAPA LIMITE SE MIDE POR DENSIDAD, NO POR VELOCIDAD.
-     Antes se definia como "primera altura donde u alcanza el 99 % del
-     maximo de la columna". En un flujo con recirculacion como este, ese
-     maximo salta de un lado a otro y delta saltaba con el: la curva daba
-     dientes de sierra de 10 a 32 mm sin sentido fisico, y como delta esta
-     en el denominador de la fraccion, el error se propagaba a todo.
-
-     Ahora se busca, BAJANDO DESDE EL TECHO, la ultima altura donde la
-     densidad todavia se aparta mas de un 1 % del valor del gas libre.
-     Dos motivos:
-       - es estable: no depende de donde este el maximo de u;
-       - es lo que mide un schlieren, que es el instrumento con el que
-         Jens et al. obtuvieron el 0.33 contra el que comparamos. Antes
-         compariamos una capa limite de VELOCIDAD contra una medida de
-         DENSIDAD, que no son la misma cosa.
-
- (2) EL CRITERIO DE REYNOLDS ERA EL EQUIVOCADO.
-     La version 1 comparaba contra Re_x = 5e5, la transicion en PLACA
-     PLANA. Pero aqui el techo tambien es pared solida: es flujo de CANAL,
-     y el criterio correcto usa el diametro hidraulico Dh = 2*Hp, con
-     transicion entre 2300 y 4000. El criterio viejo daba una impresion
-     tranquilizadora y falsa de "flujo laminar".
-
- (3) NO NECESITA capa_limite_XXXX.dat NI RECOMPILAR EL FORTRAN.
-     Todo se calcula aqui, a partir de archivos que el solver ya escribia:
-     densidad, especies, campo, malla_nodos, superficie y tiempo.
-
- QUE SE COMPARA Y CON QUE CONFIANZA
- ----------------------------------
- (A) ALTA  - fraccion y_llama/delta. Jens, Karp, Miller, Hubbard y
-     Cantwell, J. Propulsion and Power (2019), ensayo 19: HDPE puro,
-     presion atmosferica, G_ox = 43.2 kg/(m2 s), quemador plano con
-     ventana optica. Llama por quimiluminiscencia de OH*, capa limite por
-     schlieren. Reportan 0.33 (HDPE, PMMA) y 0.45 (parafina). Es
-     adimensional: no depende de la escala del ensayo.
-
- (B) MEDIA - regresion contra G_ox. Bianchi, Leccese, Nasuti, Onofri y
-     Carmicino, Aerospace 2019, 6(8), 88, Tabla 4: siete ensayos reales
-     GOX/HDPE. Solo media porque su motor es cilindrico (este es plano),
-     va de 10 a 23 bar (este a 1 bar) y su G_ox arranca en 27.7, por
-     encima del punto de operacion de este codigo.
+.
 
  USO
  ---
