@@ -1,0 +1,78 @@
+mod_precision.f90-------------
+
+Precision: Define la doble precision (dp, 8 bytes) para que los calculos no pierdan exactitud.
+
+mod_termo.f90----------------
+
+Especies y Termodinamica:
+Especies: 9 en total (C2H4, O2, CO2, H2O, CO, H2, H, O, OH).
+Tablas NASA: 9601 puntos de temperatura (desde 200 K hasta 5000 K, paso de 0.5 K).
+Presion de operacion: 101325 Pa (1 atmosfera).
+Constante de Stefan-Boltzmann: 5.67 x 10^-8 W/(m2K4).
+
+mod_malla.f90------------------
+geometria 
+
+Malla y Camara:
+Nodos: 241 en X (largo) por 141 en Y (alto total).
+Largo camara (Lx): 0.10 m (100 mm).
+Alto camara (Ly): 0.04 m (40 mm).
+
+Geometria del Grano (HDPE):
+Precamara: 0.025 m (25 mm).
+Poscamara: 0.020 m (20 mm).
+Largo del grano: 0.055 m (55 mm).
+Espesor inicial (e0): 0.020 m (20 mm).
+Espesor del liner (e_pared): 0.002 m (2 mm).
+
+Flujo y Entrada:
+Velocidad de entrada (si modo 2): 8.0 m/s.
+G_ox impuesto (modo 3): 14.0 kg/(m2 s).
+Profundidad de la camara (ancho_z): 0.020 m (20 mm).
+Ranura de entrada: Activada (usar_ranura = .true.), techo en 0.010 m (10 mm).
+Angulo de entrada: 0.0 grados (horizontal).
+
+Propiedades del HDPE (Solido):
+Densidad (rho_s): 960 kg/m3.
+Calor especifico (cp_s): 1255.2 J/(kg K).
+Conductividad (lam_s): 0.1549 W/(m K).
+Temperatura de fusion: 403 K.
+Calor latente de fusion: 2.1 x 10^5 J/kg.
+Pirolisis (Ley de Bianchi): A = 4.78 x 10^3 m/s; Ea = 2.51 x 10^5 J/mol.
+
+Encendido (Chispa y Encendedor):
+Tiempo de chispa: Inicia a los 0.02 s y termina a los 0.05 s.
+Potencia de chispa: 2.0 x 10^9 W/m3 (en una caja de 4x4 mm).
+Encendedor de pared: Flujo de calor de 1.5 x 10^6 W/m2 durante 1.5 s.
+
+Numerico:
+CFL: 0.35 (Courant).
+Fourier: 0.20.
+dt maximo: 2.0 x 10^-5 s.
+Tiempo final: 120 s (tiempo del solido).
+Factor de solido (FAC_SOLIDO): 20 (el solido avanza 20 veces mas rapido que el gas).
+
+mod_cinetica.f90------------------
+ la quimica.
+
+Mecanismo y Control:
+Reacciones: 15 en total (1 global W&D + 14 elementales GRI 3.0).
+Temperatura de corte: Si T < 600 K y no hay radicales, la quimica se apaga.
+Limite de subpasos: 4000 maximos por celda (para evitar que la simulacion se cuelgue).
+
+mod_solver.f90-------------------------
+El motor numerico.
+
+Diagnostico y Estabilidad:
+Limites de aviso: Se detiene si la velocidad supera los 1000 m/s o la temperatura los 6000 K.
+Filtro de sierra (EPS4): 1/64 (amortigua el modo de tablero de ajedrez).
+Fisica: Tensor viscoso completo  
+
+combustion_pe.f90------------------
+
+
+Control de la Simulacion:
+Bucle: Corre hasta 200 millones de iteraciones
+Salidas: Escribe un archivo de resultados cada 2000 iteraciones.
+
+ensor
