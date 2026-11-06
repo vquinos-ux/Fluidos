@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+(malla pasada no entra en el programa)
 Genera la malla no estructurada (triángulos) y la guarda para Fortran y Python.
 Salida: malla_nodos.dat, malla_triangulos.dat y malla.png
 """
